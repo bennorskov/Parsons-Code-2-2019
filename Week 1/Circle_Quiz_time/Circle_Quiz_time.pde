@@ -1,5 +1,4 @@
 float circ_x, circ_y;
-float circ_speed = 2;
 float leftSide = 50;
 float rightSide = 550;
 float totalTime = 4;

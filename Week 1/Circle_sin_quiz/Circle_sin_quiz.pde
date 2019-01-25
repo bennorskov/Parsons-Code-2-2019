@@ -1,5 +1,4 @@
 float circ_x, circ_y;
-float circ_speed = 2;
 float ampl = 250;
 void setup(){
   size(600, 400);
