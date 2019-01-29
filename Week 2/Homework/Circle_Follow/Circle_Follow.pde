@@ -7,9 +7,11 @@ void setup(){
   noStroke();
 }
 void draw() {
+  // display the circle
   background(213,89,120);
   ellipse(xPos, yPos, 20, 20);
   
+  //change direction
   if (mouseX > xPos) {
   	xSpeed = speed;
   } else {
@@ -20,6 +22,8 @@ void draw() {
   } else {
   	ySpeed = -speed;
   }
+  
+  //move the circle
   xPos += xSpeed;
   yPos += ySpeed;
 }

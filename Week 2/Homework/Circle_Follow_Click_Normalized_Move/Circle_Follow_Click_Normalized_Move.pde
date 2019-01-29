@@ -30,7 +30,7 @@ void draw() {
     
     // take the current time and divide it by the total time
     float normalizedTime = (millis() - clickTime)/(endTime-clickTime); 
-    normalizedTime = pow(normalizedTime, 6.5); 
+    normalizedTime = pow(normalizedTime, .5); 
     // percentage of the total distance based on percentage of time
     pos.x = startPos.x + xDistTotal*normalizedTime;
     pos.y = startPos.y + yDistTotal*normalizedTime;

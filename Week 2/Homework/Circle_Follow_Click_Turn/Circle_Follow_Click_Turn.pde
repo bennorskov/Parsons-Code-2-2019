@@ -1,4 +1,4 @@
-  PVector pos, velocity, target;
+PVector pos, velocity, target;
 float speed = 3;
 boolean isMoving = false;
 

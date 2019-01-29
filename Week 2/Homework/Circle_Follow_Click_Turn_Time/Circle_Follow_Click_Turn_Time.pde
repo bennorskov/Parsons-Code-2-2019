@@ -1,7 +1,7 @@
 PVector pos, startPos, velocity, target;
 boolean isMoving = false;
 
-float seconds = 1;
+float seconds = 3;
 
 float endDistance = 3;
 

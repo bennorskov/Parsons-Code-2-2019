@@ -1,16 +1,16 @@
 PVector pos, velocity;
 float speed = 3;
 
-void setup(){
+void setup() {
   size(600, 400);
   noStroke();
-  pos = new PVector();
+  pos = new PVector(0, 0);
   velocity = new PVector();
 }
 void draw() {
-  background(213,89,120);
+  background(213, 89, 120);
   ellipse(pos.x, pos.y, 20, 20);
-  
+
   velocity.x = mouseX - pos.x;
   velocity.y = mouseY - pos.y;
   velocity.normalize();
