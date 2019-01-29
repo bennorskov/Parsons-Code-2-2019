@@ -6,7 +6,7 @@ boolean squareClick = false;
 
 color leftBgColor, rightBgColor, leftBgColorClick, rightBgColorClick;
 
-String displayQuote = "Quote Number 1";
+String displayQuote = "No Buttons Clicked";
 
 void setup() {
 	size(600, 300);
@@ -86,12 +86,12 @@ void mouseClicked() {
 		squareClick = !squareClick;
 	}
 	if (circleClick && squareClick) {
-		displayQuote = "Quote Number 4";
+		displayQuote = "Both Buttons!";
 	} else if (circleClick && !squareClick) {
-		displayQuote = "Quote Number 2";
+		displayQuote = "Left Button";
 	} else if (!circleClick && squareClick) {
-		displayQuote = "Quote Number 3";
+		displayQuote = "Right Button";
 	} else {
-		displayQuote = "Quote Number 1";
+		displayQuote = "No Buttons Clicked";
 	}
 }
