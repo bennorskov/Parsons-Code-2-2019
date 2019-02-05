@@ -25,6 +25,10 @@ void draw() {
 
   rect(rectX, rectY, rectWidth, rectHeight);
 }
+void mousePressed() {
+}
+void mouseReleased() {
+}
 void mouseClicked() {
   if ( mouseX > rectX && 
        mouseX < rectX + rectWidth && 

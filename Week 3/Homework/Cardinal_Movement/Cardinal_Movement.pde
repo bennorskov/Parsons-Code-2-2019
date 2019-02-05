@@ -1,5 +1,6 @@
+// square variables:
 float x, y, xSpeed, ySpeed, speed;
-
+// button variables:
 float buttonLeftX, buttonRightX, buttonForwardX, buttonBackX, buttonStopX, buttonY, buttonW;
 
 void setup() {
@@ -12,7 +13,7 @@ void setup() {
 
   speed = 2;
 
-  buttonW = 50;
+  buttonW = 47;
   buttonLeftX = buttonW;
   buttonY = 420;
   buttonForwardX = buttonW * 3;
