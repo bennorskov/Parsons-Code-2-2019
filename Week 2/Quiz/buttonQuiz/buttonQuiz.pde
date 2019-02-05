@@ -65,13 +65,13 @@ void drawCircleButton() {
 }
 void drawSquareButton() {
 	// this is hit detection for a square:
-	if (mouseX > squareButtonX && 
-		mouseX < squareButtonX + squareButtonD && 
-		mouseY > squareButtonY && 
+	if (mouseX > squareButtonX &&
+		mouseX < squareButtonX + squareButtonD &&
+		mouseY > squareButtonY &&
 		mouseY < squareButtonY + squareButtonD) {
 		fill(255);
 	} else {
-		fill(200);	
+		fill(200);
 	}
 	rect(squareButtonX, squareButtonY, squareButtonD, squareButtonD);
 }
@@ -86,16 +86,16 @@ void drawText() {
 void mouseClicked() {
 	// circle hit detection:
 	if (dist(mouseX, mouseY, circleButtonX, circleButtonY) < circleButtonD*.5) {
-		// if inside the circle, change the boolean to not false ("!" means "not" this) 
+		// if inside the circle, change the boolean to not false ("!" means "not" this)
 		// note that this boolean is only changed on this line, and no where else in the code
 		// it does not affect the rollover code
-		circleClick = !circleClick;	
+		circleClick = !circleClick;
 	}
 
 	// square hit detection:
-	if (mouseX > squareButtonX && 
-		mouseX < squareButtonX + squareButtonD && 
-		mouseY > squareButtonY && 
+	if (mouseX > squareButtonX &&
+		mouseX < squareButtonX + squareButtonD &&
+		mouseY > squareButtonY &&
 		mouseY < squareButtonY + squareButtonD) {
 		// same stuff, just for a square
 		squareClick = !squareClick;

@@ -13,7 +13,7 @@ void setup() {
 
   speed = 2;
 
-  buttonW = 47;
+  buttonW = 50;
   buttonLeftX = buttonW;
   buttonY = 420;
   buttonForwardX = buttonW * 3;
