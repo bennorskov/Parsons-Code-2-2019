@@ -1,21 +1,3 @@
-/*
-# Quiz Raindrops
- This quiz tests your knowledge of making a class, and lightly about code structures. 
- 100 points is 100%. Extra is extra!
- * 10 Points: Make a Drop
- * 10 Points: Move your drop down over time
- * 15 Points: Have your drop reset at the top of the screen after moving offscreen. +5 for randomly
- * 15 Points: Make more than 10 drops
- * 15 Points: Make more than 50 drops
- * 30 Points: Have the drop smoothly change color as it falls
- * 15 Points: Have a gradient background
- * 10 Points: Have a cloud
- * 10 Points: Move your cloud horizontally
- * 20 Points: Reset your cloud when it moves offscreen
- * 15 Points: Have more than 20 clouds
- * 10 Points: Make your cloud transparent
- */
-
 Drop[] allDrops = new Drop[100];
 
 Cloud[] allClouds = new Cloud[100];
