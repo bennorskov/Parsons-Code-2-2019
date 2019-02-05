@@ -11,6 +11,12 @@ void setup() {
 }
 
 void draw() {
+  if (buttonIsClicked) {
+    bgColor = color(0, 100, 200);
+  } else {
+    bgColor = color(220, 100, 200);
+  }
+  
   background( bgColor);
 
   line(lineX, 0, lineX, height);
@@ -24,10 +30,15 @@ void mouseClicked() {
        mouseX < rectX + rectWidth && 
        mouseY > rectY && 
        mouseY < rectY + rectHeight) {
-     buttonIsClicked = true;
-   } else {
-     buttonIsClicked = false;
-   }
+     
+     if (buttonIsClicked) {
+       buttonIsClicked = false;
+     } else {
+       buttonIsClicked = true;
+     }
+     
+     // shorthand: buttonIsClicked = !buttonIsClicked;
+   } 
    println(buttonIsClicked);
 }
 void bensHitDetection() {
