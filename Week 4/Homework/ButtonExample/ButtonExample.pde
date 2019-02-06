@@ -14,7 +14,7 @@ void setup() {
 }
 void draw() {
   if (dragButton.isPressed) {
-    background(240);
+    background(200);
   } else {
     background(30);
   }
