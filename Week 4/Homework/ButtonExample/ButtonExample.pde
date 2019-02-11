@@ -1,4 +1,5 @@
-Button dragButton;
+Button dragButton, fireWorksButton;
+Fireworks theFire;
 
 float dragZoneX, dragZoneY, dragZoneW, dragZoneH;
 void setup() {
@@ -7,10 +8,14 @@ void setup() {
   dragButton = new Button( 30, 50, 60, 40);
   dragButton.isActive = false;
 
+  fireWorksButton = new Button(175, 350, 50, 50);
+
   dragZoneX = 450; 
   dragZoneY = 320;
   dragZoneW = 80;
   dragZoneH = 60;
+  
+  theFire = new Fireworks(200, 350);
 }
 void draw() {
   if (dragButton.isPressed) {
@@ -21,7 +26,17 @@ void draw() {
   dragButton.update();
   dragButton.display();
 
+  fireWorksButton.update();
+  fireWorksButton.display();
+
   dragZoneHandler();
+  
+  if (fireWorksButton.isPressed) {
+    theFire.fire();
+    fireWorksButton.isPressed = false;
+  }
+  theFire.update();
+  theFire.display();
 }
 
 void dragZoneHandler() {
@@ -40,10 +55,13 @@ void mouseDragged() {
 }
 void mouseClicked() {
   dragButton.click();
+  fireWorksButton.click();
 }
 void mousePressed() {
   dragButton.pressed();
+  fireWorksButton.pressed();
 }
 void mouseReleased() {
   dragButton.released();
+  fireWorksButton.released();
 }
