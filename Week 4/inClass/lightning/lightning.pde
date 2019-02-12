@@ -1,15 +1,31 @@
+Bolt marker;
+Bolt napkin;
+int arrayLength = 40;
+Bolt[] field = new Bolt[arrayLength];
 void setup() {
   size(400, 750);
+  marker = new Bolt(200, 310);
+  napkin = new Bolt(89, 114);
+  
+  for (int i = 0; i < arrayLength; i++) {
+    field[i] = new Bolt(random(width), random(height));
+  }
+  
 }
 void draw() {
   background(0, 30, 100);
-  drawLightningBolt(50, 200);
+  marker.display();
+  marker.move();
+  napkin.display();
+  napkin.move();
+  
   int numBolts = 200;
   for (int i = 0; i < numBolts; i++) {
-    drawLightningBolt(random(width), random(height));
-    //drawLightningBolt(i, i);
+    //drawLightningBolt(random(width), random(height));
+    //drawLightningBolt(i*2, i*2);
     //drawLightningBolt(i%10*width/10, i/30 * height/6);
   }
+
 }
 void drawLightningBolt(float _x, float _y) {
   noStroke();
