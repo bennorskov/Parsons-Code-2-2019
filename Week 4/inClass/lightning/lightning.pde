@@ -14,6 +14,12 @@ void setup() {
 }
 void draw() {
   background(0, 30, 100);
+  
+  for (int i = 0; i < arrayLength; i++) {
+    field[i].display();
+    field[i].move();
+  }
+  
   marker.display();
   marker.move();
   napkin.display();
@@ -25,7 +31,6 @@ void draw() {
     //drawLightningBolt(i*2, i*2);
     //drawLightningBolt(i%10*width/10, i/30 * height/6);
   }
-
 }
 void drawLightningBolt(float _x, float _y) {
   noStroke();
