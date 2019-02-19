@@ -13,14 +13,16 @@ void setup() {
   d.buttonH = 100;
   buttons.add(d);
   buttons.add( new TimerButton(400, 100, 20, 'f'));
-  buttons.add( new TimerButton(100, 200, 80, 'g'));
+  TimerButton g = new TimerButton(140, 240, 80, 'g');
+  g.isRectangle = false;
+  buttons.add( g );
   TimerButton h = new TimerButton(200, 200, 50, 'h');
   h.totalTime = 230;
   buttons.add( h );
   buttons.add( new TimerButton(300, 210, 40, 'j'));
-  TimerButton k = new TimerButton(400, 200, 50, 'k');
-  k.buttonW = 100;
+  TimerButton k = new TimerButton(425, 225, 50, 'k');
   k.totalTime = 800;
+  k.isRectangle = false;
   buttons.add( k );
 }
 void draw() {

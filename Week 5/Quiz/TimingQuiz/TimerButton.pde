@@ -7,6 +7,7 @@ class TimerButton {
   int ROLLOVER_STATE = 2;
   int startTime, endTime, totalTime;
   char characterCode;
+  boolean isRectangle = true;
   TimerButton (float _x, float _y, float _w, char _charCode) {
     buttonX = _x;
     buttonY = _y;
@@ -31,29 +32,49 @@ class TimerButton {
       fill(rollover);
       break;
     }
-    rect(buttonX, buttonY, buttonW, buttonH);
+    if (isRectangle) {
+      rect(buttonX, buttonY, buttonW, buttonH);
+    } else {
+      ellipse(buttonX, buttonY, buttonW, buttonH);
+    }
     drawTimerShape();
     textAlign(CENTER);
     textSize(16);
     textFont(avantGarde);
     fill(0);
-    text(characterCode, buttonX + buttonW*.5, buttonY + buttonH*.6);
+    if (isRectangle) {
+      text(characterCode, buttonX + buttonW*.5, buttonY + buttonH*.6);
+    } else {
+      text(characterCode, buttonX + buttonW * .01, buttonY + buttonH * .1);
+    }
   }
   void drawTimerShape() {
     if (STATE == INACTIVE_STATE) {
       fill(timerColor);
       float percent = float(millis() - startTime)/float(totalTime);
-      rect(buttonX, buttonY, buttonW, buttonH * percent);
+      if (isRectangle) {
+        rect(buttonX, buttonY, buttonW, buttonH * percent);
+      } else {
+        ellipse(buttonX, buttonY, buttonW * percent, buttonH * percent);
+      }
     }
   }
   void checkState() {
     // rollover handler:
     if (STATE != INACTIVE_STATE) {
-      if (mouseX > buttonX && mouseX < buttonX + buttonW 
-        && mouseY > buttonY && mouseY < buttonY + buttonH) {
-        STATE = ROLLOVER_STATE;
+      if (isRectangle) {
+        if (mouseX > buttonX && mouseX < buttonX + buttonW 
+          && mouseY > buttonY && mouseY < buttonY + buttonH) {
+          STATE = ROLLOVER_STATE;
+        } else {
+          STATE = ACTIVE_STATE;
+        }
       } else {
-        STATE = ACTIVE_STATE;
+        if (dist(mouseX, mouseY, buttonX, buttonY) < buttonW) {
+          STATE = ROLLOVER_STATE;
+        } else {
+          STATE = ACTIVE_STATE;
+        }
       }
     } else {
       if (millis() > endTime) {
