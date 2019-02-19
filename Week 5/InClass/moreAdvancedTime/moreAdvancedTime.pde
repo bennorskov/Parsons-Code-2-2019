@@ -1,6 +1,6 @@
 //when I press a key, change the background for 3 seconds, then change it back
 float startTime, endTime;
-float totalTime = .5;
+float totalTime = 3;
 color normalColor, activeColor;
 boolean isActive = false;
 void setup() {
@@ -13,7 +13,7 @@ void draw() {
   if (isActive) {
     background(activeColor);
     //switchBackEndTime();
-    //switchBackStartTime();
+    switchBackStartTime();
   } else {
     background(normalColor);
   }
@@ -32,6 +32,8 @@ void switchBackEndTime() {
 }
 void switchBackStartTime() {
   if (millis() - startTime > totalTime) {
+  // option as well:
+  // if (millis() > totalTime + startTime) {
     isActive = false;
   }
 }

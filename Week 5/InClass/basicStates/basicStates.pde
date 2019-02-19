@@ -2,14 +2,27 @@ int START_SCREEN = 0;
 int PLAY_SCREEN = 1;
 int END_SCREEN = 2;
 int MAP_SCREEN = 3;
-int STATE = START_SCREEN;
+int SETTINGS_SCREEN = 4;
+int STATE = MAP_SCREEN;
 void setup() {
   size(500, 500);
 }
 void draw() {
+  //if (STATE == START_SCREEN) {
+  
+  //} else if (STATE == 1) {
+  
+  //} else if (STATE == 2) {
+  
+  //}
   switch (STATE) {
     case 0: // start screen
       showStartScreen();
+    break;
+    case 4: // settings screen
+      //background(230, 30, 10);
+      fill(255);
+      ellipse(200, 200, 100, 40);
     break;
     case 1: // play screen
       showPlayScreen();
@@ -35,6 +48,9 @@ void keyTyped() {
     break;
     case 'r':
       STATE = PLAY_SCREEN;
+    break;
+    case 'u':
+      STATE = SETTINGS_SCREEN;
     break;
   }
 }
