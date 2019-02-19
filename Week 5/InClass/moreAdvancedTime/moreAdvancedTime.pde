@@ -25,6 +25,8 @@ void keyTyped() {
   startTime = millis();
   endTime = millis() + totalTime;
 }
+// switchBackEndTime does the exact same functionality as switchBackStartTime.
+// These are two methods of thinking about timing, either is correct
 void switchBackEndTime() {
   if (millis() > endTime) {
     isActive = false;
