@@ -45,30 +45,30 @@ void mouseClicked() {
 This week's quiz tests your knowledge of STATES, classes, and timing. 
  You also could do some normalization work.
  
- The Basics: (70 points possible)
+ The Basics: (45 points possible)
  5 points: Draw a square
- 15 points: Draw a letter on top of the square
+ 10 points: Draw a letter on top of the square
  5 points: Draw more than 3 squares
- 20 points: Draw more than 3 squares with letters
- 20 points: Use a class to draw more than 3 squares 
+ 10 points: Draw more than 3 squares with letters
+ 10 points: Use a class to draw more than 3 squares 
    +5 points:with different letters
  
- Mouse Interactions: (75 points possible)
- 10 points: have a mouse rollover
- 10 points: have the mouse click on the square and change color
- 30 points: have the square change color back after a certain amount of time
- 25 points: Make the square unclickable while the color has changed
+ Mouse Interactions: (45 points possible)
+ 5 points: have a mouse rollover
+ 5 points: have the mouse click on the square and change color
+ 15 points: have the square change color back after a certain amount of time
+ 20 points: Make the square unclickable while the color has changed
  
- Keyboard Interactions: (85 points possible)
- 30 points: if you type a letter, have only that square change color
- 30 points: have the square change color back after a certain amount of time
- 25 points: If you type the same letter while the color is changed, don't do anything
+ Keyboard Interactions: (45 points possible)
+ 15 points: if you type a letter, have only that square change color
+ 15 points: have the square change color back after a certain amount of time
+ 15 points: If you type the same letter while the color is changed, don't do anything
 
 Timing UI:
- 60 points: Indicate the square is "inactive" using an animation similar to the "filling up" animation I'm using
+ 40 points: Indicate the square is "inactive" using an animation similar to the "filling up" animation I'm using
 
-Each Additional Square with the same functionality: (each 30 total possible)
-  +15 points per square
+Each Additional Square with the same functionality: (each 15 total possible)
+  +5 points per square with the same functionality
   +5 per square of different sizes
-  +10 per square with different timings
+  +5 per square with different timings
  */
