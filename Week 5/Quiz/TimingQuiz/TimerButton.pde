@@ -1,5 +1,5 @@
 class TimerButton {
-  float buttonX, buttonY, buttonW;
+  float buttonX, buttonY, buttonW, buttonH;
   color normal, rollover, inactive, timerColor;
   int STATE = 0;
   int ACTIVE_STATE = 0;
@@ -11,6 +11,7 @@ class TimerButton {
     buttonX = _x;
     buttonY = _y;
     buttonW = _w;
+    buttonH = _w;
     normal = color(109, 100, 230);
     rollover = color(230, 10, 130);
     inactive = color(100);
@@ -30,26 +31,26 @@ class TimerButton {
       fill(rollover);
       break;
     }
-    rect(buttonX, buttonY, buttonW, buttonW);
+    rect(buttonX, buttonY, buttonW, buttonH);
     drawTimerShape();
     textAlign(CENTER);
     textSize(16);
     textFont(avantGarde);
     fill(0);
-    text(characterCode, buttonX + buttonW*.5, buttonY + buttonW*.6);
+    text(characterCode, buttonX + buttonW*.5, buttonY + buttonH*.6);
   }
   void drawTimerShape() {
     if (STATE == INACTIVE_STATE) {
       fill(timerColor);
       float percent = float(millis() - startTime)/float(totalTime);
-      rect(buttonX, buttonY, buttonW, buttonW * percent);
+      rect(buttonX, buttonY, buttonW, buttonH * percent);
     }
   }
   void checkState() {
     // rollover handler:
     if (STATE != INACTIVE_STATE) {
       if (mouseX > buttonX && mouseX < buttonX + buttonW 
-        && mouseY > buttonY && mouseY < buttonY + buttonW) {
+        && mouseY > buttonY && mouseY < buttonY + buttonH) {
         STATE = ROLLOVER_STATE;
       } else {
         STATE = ACTIVE_STATE;
