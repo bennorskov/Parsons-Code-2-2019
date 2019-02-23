@@ -70,7 +70,7 @@ class TimerButton {
           STATE = ACTIVE_STATE;
         }
       } else {
-        if (dist(mouseX, mouseY, buttonX, buttonY) < buttonW) {
+        if (dist(mouseX, mouseY, buttonX, buttonY) < buttonW*.5) {
           STATE = ROLLOVER_STATE;
         } else {
           STATE = ACTIVE_STATE;
