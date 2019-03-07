@@ -1,14 +1,3 @@
-/*
-Catch and Release
-
-10 points: Have a circle move on screen
-25 points: have the circle bounce off the bottom and sides of the screen
-25 points: Simulate Gravity on the circle
-20 points: Reduce the circle's velocity when it hits the screen edges
-20 points: Catch & Release the circle with your mouse
-30 points: "Throw" the circle by moving and releasing your mouse quickly
-
-*/
 PVector pos, vel, acc;
 float ballW = 60;
 float ballH = 60;
@@ -37,7 +26,8 @@ void draw() {
   
   ellipse(pos.x, pos.y, ballW, ballH);
 }
-void  if (pos.x > width - ballW*.5) {
+void  checkBounds() {
+  if (pos.x > width - ballW*.5) {
     pos.x = width - ballW*.5;
     vel.x *= -.8;
   } else if (pos.x < ballW*.5) {
