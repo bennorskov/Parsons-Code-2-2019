@@ -4,10 +4,10 @@ class Grace {
   int KICK = 1;
   int PUNCH = 2;
   int JUMP = 3;
-  int MOVE = 4;
+  int WALK = 4;
   int STATE = STAND;
   // Setup Choice Matrix
-  String[] stateNames = {"STAND", "KICK", "PUNCH", "JUMP", "MOVE"};
+  String[] stateNames = {"STAND", "KICK", "PUNCH", "JUMP", "WALK"};
   float[][] choices = {
     // "STAND","KICK","PUNCH","JUMP","MOVE"
     { .4, .1, .1, .01, .39}, 
@@ -43,6 +43,9 @@ class Grace {
 
   //animation handler
   int frameNumber = 0;
+  //
+  // ———————— ———————— ———————— ———————— ———————— ———————— ———————— CONSTRUCTOR
+  //
   Grace() {
     velo = new PVector(0, 0);
     pos = new PVector(random(width), random(height));
@@ -72,8 +75,11 @@ class Grace {
   }
   //
   // ———————— ———————— ———————— ———————— ———————— ———————— ———————— MOVEMENT
+  //
   void update() {
+    // Move your character
     pos.add(velo);
+    // Wrap Screen
     if (pos.y < 0) {
       pos.y = height;
     }
@@ -82,10 +88,19 @@ class Grace {
     } else if (pos.x < 0) {
       pos.x = width;
     }
-    if (chooseNewDirection) {
+    if (chooseNewDirection) { // 50% chance of left or right
       facingDirection = (random(1) < .5) ? 1 : -1;
+      // line above is shorthand of below code:
+      /*
+      if (random(1) < .5) {
+        facingDirection = 1;
+      } else {
+        facingDirection = -1;
+      }
+      */
       chooseNewDirection = false;
     }
+    // Handle different movement and state changes:
     switch (STATE) {
     case 1: // KICK
     case 2: // PUNCH
@@ -95,7 +110,7 @@ class Grace {
       velo = new PVector(-facingDirection * speed, 0);
     case 0: // STAND
     default:
-      STATE = changeState();
+      STATE = getNewState();
       break;
     case 3: // JUMP
       velo = new PVector(-facingDirection * speed * .4, -jumpSpeed);
@@ -109,9 +124,12 @@ class Grace {
     pushMatrix();
     translate(pos.x, pos.y);
     scale(facingDirection, 1); // face left or right
+    // draw a shadow circle:
     fill(0, 20);
     ellipse(0, 65, 100, 30);
-    // ANIMATION STATE MACHINE
+    //
+    // —————————————————————————————— ANIMATION STATE MACHINE
+    //
     switch (STATE) {
     case 1: // KICK
       playKickAnimation();
@@ -135,7 +153,7 @@ class Grace {
     if (frameCount%jumpAnimationSpeed == 0) {
       frameNumber++;
       if (frameNumber>=numJumpFrames) {
-        STATE = changeState();
+        STATE = getNewState();
         chooseNewDirection = true;
       };
     }
@@ -145,7 +163,7 @@ class Grace {
     if (frameCount%kickAnimationSpeed == 0) {
       frameNumber++;
       if (frameNumber>=numKickFrames) {
-        STATE = changeState();
+        STATE = getNewState();
         chooseNewDirection = true;
       };
     }
@@ -155,12 +173,12 @@ class Grace {
     if (frameCount%punchAnimationSpeed == 0) {
       frameNumber++;
       if (frameNumber>=numPunchFrames) {
-        STATE = changeState();
+        STATE = getNewState();
         chooseNewDirection = true;
       };
     }
   }
-  int changeState() {
+  int getNewState() {
     frameNumber = 0;
     float rand = random(1);
     float currentTotal = 0;

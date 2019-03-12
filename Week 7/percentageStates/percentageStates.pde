@@ -8,8 +8,8 @@
   // F : .85 - 1
 char[] states = { 'A', 'B', 'C', 'D', 'E', 'F'};
 float[] range = { .2,  .4,  .1,  .1,  .05, .15 };
-float rand = random(1);
 
+float rand = random(1);
 println(rand);
 float current = 0;
 for (int i = 0; i<range.length; i++) {

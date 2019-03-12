@@ -5,9 +5,12 @@
  */
 Grace g;
 
+Grace g2;
+
 void setup() {
   size( 800, 600);
   g = new Grace();
+  g2 = new Grace();
   imageMode(CENTER);
 }
 
@@ -15,6 +18,8 @@ void draw() {
   drawBackground();
   g.displayCharacter();
   g.update();
+  g2.displayCharacter();
+  g2.update();
 }
 void drawBackground() {
   background(255);
