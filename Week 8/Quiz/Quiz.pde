@@ -6,7 +6,7 @@ float turtSpeed = 3;
 int turtArrayPosition = 0;
 float hitDetectionDistance = turtSpeed*2;
 void setup() {
-  size(800, 400);
+  size(600, 350);
   noStroke();
 
   barW = float(width)/values.length;
@@ -18,8 +18,9 @@ void setup() {
 
 void draw() {
   background(#001935);
-  fill(255);
+  
   for (int i = 0; i<values.length; i++) {
+    fill( map(values[i], 0, 1, 255, 0), 0, map(values[i], 0, 1, 0, 255));
     rect(i*barW, height-values[i]*height, barW, values[i]*height);
   }
   turtPosition.add(turtVelo);
@@ -39,13 +40,13 @@ void draw() {
 }
 /*
 5 points: Draw a rectangle
-25 points: for each normalized value
-30 points: sized larger for larger values, and smaller for smaller ones
-25 points: No matter what the size of sketch, always fill the screen
-10 points: Move a circle across the screen
-35 points: Move a circle along the top of the rectangles you've drawn. 
-15 points: When the circle gets to the end of a line, start over at the beginning
-5 points: Use better colors than ben
-10 points: generate your own values using random()
-20 points: generate your own values using noise()
-*/
+ 25 points: for each normalized value
+ 30 points: sized larger for larger values, and smaller for smaller ones
+ 25 points: No matter what the size of sketch, always fill the screen
+ 10 points: Move a circle across the screen
+ 35 points: Move a circle along the top of the rectangles you've drawn. 
+ 15 points: When the circle gets to the end of a line, start over at the beginning
+ 5 points: Use better colors than ben
+ 10 points: generate your own values using random()
+ 20 points: generate your own values using noise()
+ */
