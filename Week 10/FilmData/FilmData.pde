@@ -1,5 +1,7 @@
-
-Table table;
+/*
+  A small visualization of the number of places had film locations
+*/
+Table filmData;
 
 int manhattanLocCount = 0;
 int brooklynLocCount = 0;
@@ -13,11 +15,11 @@ float barYScaler = .8;
 
 void setup() {
   size(600, 500);
-  table = loadTable("Film_Permits_small.csv", "header");
+  filmData = loadTable("Film_Permits_small.csv", "header");
 
-  println(table.getRowCount() + " total rows in table"); 
+  println(filmData.getRowCount() + " total rows in table"); 
 
-  for (TableRow row : table.rows()) {
+  for (TableRow row : filmData.rows()) {
 
     int id = row.getInt("EventID");
     String where = row.getString("Borough");
