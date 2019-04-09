@@ -2,7 +2,9 @@ Triangle t;
 Circle c;
 Square s;
 int numShapes = 42;
-Shape[] shapes = new Shape[numShapes];
+//Shape[] shapes = new Shape[numShapes];
+
+ArrayList<Shape> polys = new ArrayList<Shape>();
 
 void setup () {
   size(500, 500);
@@ -10,13 +12,16 @@ void setup () {
   for (int i = 0; i<numShapes; i++) {
     switch (i%3) {
       case 0:
-      shapes[i] = new Triangle(random(width), random(height), 40, 40);
+      //shapes[i] = new Triangle(random(width), random(height), 40, 40);
+      polys.add( new Triangle(random(width), random(height), 40, 40) );
       break;
       case 1:
-      shapes[i] = new Circle(random(width), random(height), random(10, 160));
+      // shapes[i] = new Circle(random(width), random(height), random(10, 160));
+      polys.add( new Circle(random(width), random(height), random(10, 160)) );
       break;
       case 2:
-      shapes[i] = new Square(random(width), random(height), 40, 60);
+      //shapes[i] = new Square(random(width), random(height), 40, 60);
+      polys.add( new Square(random(width), random(height), 40, 60) );
       break;
     }
   }
@@ -30,6 +35,11 @@ void setup () {
 void draw() {
   background(0);
   
+  for (int i = 0; i < numShapes; i++ ) {
+    Shape qw = shapes[i];
+    qw.display();
+  }
+  // foreach ( Shape s in shapes ) {}
   for( Shape s : shapes ) {
     s.display();
   }
