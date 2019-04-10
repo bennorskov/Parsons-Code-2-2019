@@ -8,18 +8,18 @@ ArrayList<Shape> polys = new ArrayList<Shape>();
 
 void setup () {
   size(500, 500);
-  
+
   for (int i = 0; i<numShapes; i++) {
     switch (i%3) {
-      case 0:
+    case 0:
       //shapes[i] = new Triangle(random(width), random(height), 40, 40);
       polys.add( new Triangle(random(width), random(height), 40, 40) );
       break;
-      case 1:
+    case 1:
       // shapes[i] = new Circle(random(width), random(height), random(10, 160));
       polys.add( new Circle(random(width), random(height), random(10, 160)) );
       break;
-      case 2:
+    case 2:
       //shapes[i] = new Square(random(width), random(height), 40, 60);
       polys.add( new Square(random(width), random(height), 40, 60) );
       break;
@@ -34,25 +34,28 @@ void setup () {
 }
 void draw() {
   background(0);
-  
-  for (int i = 0; i < numShapes; i++ ) {
-    Shape qw = shapes[i];
-    qw.display();
-  }
+
   // foreach ( Shape s in shapes ) {}
-  for( Shape s : shapes ) {
+  for ( Shape s : polys ) {
     s.display();
   }
-  
+
   //t.display();
   //c.display();
   //s.display();
 }
 
 void mousePressed() {
-  for( Shape s : shapes ) {
+  boolean isRemoved = false;
+  for (int i = polys.size() -1 ; i >= 0; i--) {
+  // for (int i = 0; i < polys.size(); i++ ) {
+    Shape s = polys.get(i);  // shapes[i]
     if (s.hitDetect(mouseX, mouseY)) { 
-    println( "You got a " + s.type + "!" );
+      polys.remove(i);
+      isRemoved = true;
+    }
   }
+  if (!isRemoved) {
+    polys.add( new Triangle(mouseX, mouseY, 60, 60) );
   }
 }
