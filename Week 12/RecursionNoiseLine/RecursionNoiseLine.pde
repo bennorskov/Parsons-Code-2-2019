@@ -7,19 +7,20 @@ void setup() {
 void draw() {
   fillArray(0);
   println(nums);
-  drawLine(14, 35);
+  drawLine(10, 40);
 }
 void fillArray(int index) {
+  // fill nums from 0 index to the end with noise
+  nums[index] = noise(index * .1);
+  index++;
   if (index < nums.length) {
-    nums[index] = noise(index * .1);
-    index++;
     fillArray(index);
   }
 }
-void drawLine(int index, int end ) {
-  if (index < end) {
-    point(index*2, nums[index] * 20 + 20);
-    index++;
-    drawLine(index, end);
+void drawLine(int start, int end ) {
+  point(start * 2, nums[start] * 20 + 30);
+  start++;
+  if (start < end) {
+    drawLine(start, end);
   }
 }
