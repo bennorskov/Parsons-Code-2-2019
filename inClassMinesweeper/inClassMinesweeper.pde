@@ -1,17 +1,19 @@
-int numCols = 12;
-int numRows = 10;
+int numCols = 30;
+int numRows = 40;
 
-int cellW = 50;
-int cellH = 50;
+int cellW, cellH;
 
 int[][] mineField = new int[numCols][numRows]; 
 
 boolean[][] isRevealed = new boolean[numCols][numRows];
 
 void setup() {
-  size(150, 200);
+  size(825, 600);
 
-  setupMineField( 4 );
+  cellW = width/numRows;
+  cellH = height/numCols;
+
+  setupMineField( 20 );
 
   text("it's stupid how the font won't load", -10000, 10000);
 }
@@ -49,6 +51,29 @@ void mousePressed() {
   println(gridX, gridY);
   // reveal that square
   isRevealed[gridY][gridX] = true;
+  checkOpenSquaresAround(gridY, gridX);
+}
+
+void checkOpenSquaresAround(int y, int x) {
+  if (mineField[y][x] == 0) {
+    // if i reveal a zero 
+    //then open cells around this cell
+    openCell(y - 1, x);
+    openCell(y - 1, x + 1);
+    openCell(y + 0, x + 1);
+    openCell(y + 1, x + 1);
+    openCell(y + 1, x);
+    openCell(y + 1, x - 1);
+    openCell(y, x - 1);
+    openCell(y - 1, x - 1);
+  }
+}
+void openCell(int y, int x) {
+  if (y < 0 || y >= numCols || x < 0 || x >= numRows) return;
+  if (!isRevealed[y][x]) {
+    isRevealed[y][x] = true;
+    checkOpenSquaresAround(y, x);
+  }
 }
 
 void setupMineField( int numMines ) {
@@ -80,6 +105,6 @@ void addOneToCell(int y, int x) {
   if (y < 0 || y >= numCols || x < 0 || x >= numRows) return;
   mineField[y][x]++;
   /* if (y >= 0 && y < numCols && x >= 0 && x < numRows) {
-    mineField[y][x]++;
-  } */
+   mineField[y][x]++;
+   } */
 }
